@@ -11,7 +11,15 @@ var budgetController = (function () {
 //UI CONTROLLER 
 var UIController = (function() {
     
-    //some code 
+    return {
+        getInput: function() {
+            return {
+                type: document.querySelector('.add__type').value, // will be either inc or exp
+                description: document.querySelector('.add__description').value,
+                value: document.querySelector('.add__value').value
+            }
+        }
+    }
     
 })();
 
@@ -21,11 +29,12 @@ var controller = (function(budgetCtrl, UICtrl) {
     
     var ctrlAddEvent = function() {
         
-        // 1. Get the field data from the user 
+        // 1. Get the field input data from the user 
         // 2. Add the items to UI
         // 3. Add the items to budget calculator
         // 4. calculate the budget 
-        // 5. Add the items to budget UI
+        // 5. Display the budget on UI
+        
         console.log('test event');    
     };
     
