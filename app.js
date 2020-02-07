@@ -4,9 +4,48 @@
 //BUDGET CONTROLLER 
 var budgetController = (function () {
     
-    // some code 
+    //function constructor
+    var Expense = function(id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+    
+     var Income = function(id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+    
+    //data structure
+    var allExpenses = [];
+    var allIncomes = [];
+    var totalExpenses = 0;
+    var totalIncomes = 0;
+    
+    //to have a simplified data structure create an object 
+    var data = {
+        allItems: {
+            exp: [],
+            inc: []
+        },
+        totals: {
+            exp: 0,
+            inc: 0
+        }
+    }
+    
+    
+    
     
 })();
+
+//just for testing on console
+var Income = function(id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
 
 //UI CONTROLLER 
 var UIController = (function() {
