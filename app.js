@@ -222,7 +222,13 @@ var UIController = (function() {
             return (type === 'inc' ? '+' : '-') + ' ' + int + '.'  + dec; 
             
             
-        };
+    };
+    
+    var nodeListForEach = function(list, callback) {
+                for (var i = 0; i < list.length; i++) {
+                    callback(list[i], i);
+                }  
+        }
    
     return {
         getInput: function() {
@@ -307,11 +313,7 @@ var UIController = (function() {
         displayPercentage: function(percentage) {
             
             var fields = document.querySelectorAll(DOMStrings.expensePercentageLabel);
-            var nodeListForEach = function(list, callback) {
-                for (var i = 0; i < list.length; i++) {
-                    callback(list[i], i);
-                }  
-            }
+            
             
             nodeListForEach(fields, function(current, index) {
                 
@@ -340,6 +342,22 @@ var UIController = (function() {
             
         },
         
+        changeType: function() {
+            var fields;
+            
+            fields =  document.querySelectorAll(
+                DOMStrings.inputType + ',' + 
+                DOMStrings.inputDescription + ',' + 
+                DOMStrings.inputValue);
+            
+            nodeListForEach(fields, function(current) {
+                current.classList.toggle('red-focus');
+            });
+            
+            document.querySelector(DOMStrings.inputBtn).classList.toggle('red');
+            
+        },
+        
         getDOMString: function() {
             return DOMStrings;
         
@@ -364,6 +382,8 @@ var controller = (function(budgetCtrl, UICtrl) {
          }) 
         
         document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
+        
+        document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changeType);
     };
     
     //this is called each time a new item added
