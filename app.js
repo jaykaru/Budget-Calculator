@@ -161,13 +161,13 @@ var budgetController = (function () {
                 percentage: data.percentage
             }
         }
-         ,
-        
-        
-        //This is to test data on console
-        testData: function() {
-            console.log(data);
-        }
+//         ,
+//        
+//        
+//        //This is to test data on console
+//        testData: function() {
+//            console.log(data);
+//        }
     }
     
     
